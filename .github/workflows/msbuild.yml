@@ -27,6 +27,6 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: refrontier-Release
-          path: d:\a\ReFrontier\ReFrontier\x64\Release\*
+          path: D:\a\ReFrontier\ReFrontier\**\bin\Release\*
           overwrite: true
           if-no-files-found: error
