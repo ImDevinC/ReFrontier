@@ -22,5 +22,5 @@ jobs:
       - name: build
         working-directory: ${{ env.GITHUB_WORKSPACE }}
         run: |
-          msbuild -m -p:Configuration=release -p:Platform=x64 ReFrontier.sln
-          ls -la
+          msbuild -m -p:Configuration=Release -p:Platform=x64 ReFrontier.sln
+          dir /a
