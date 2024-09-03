@@ -22,5 +22,5 @@ jobs:
       - name: build
         working-directory: ${{ env.GITHUB_WORKSPACE }}
         run: |
-          msbuild -m -p:Configuration=Release -p:Platform="Any CPU" ReFrontier.sln
+          msbuild -t:build -restore -p:RestorePackagesConfig=true -p:Configuration=Release -p:Platform="Any CPU" ReFrontier.sln
           dir /a
