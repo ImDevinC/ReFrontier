@@ -1,0 +1,26 @@
+name: MSBuild
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: microsoft/setup-msbuild@v1.1
+        with:
+          vs-version: "[,17)"
+          msbuild-architecture: x64
+      - name: Dotnet restore
+        working-directory: ${{ env.GITHUB_WORKSPACE }}
+        run: |
+          dotnet restore ReFrontier.sln
+      - name: build
+        working-directory: ${{ env.GITHUB_WORKSPACE }}
+        run: |
+          msbuild -m -p:Configuration=release -p:Platform=x64 ReFrontier.sln
+          ls -la
